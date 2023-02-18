@@ -18,3 +18,15 @@ e.g
 - `terraform-aws-s3`
 - `terraform-tfe-modules`
 - `terraform-snowflake-database`
+
+## Branch Protection
+
+We try and enforce some best practice GitHub configuration here. The repo thats created will have a
+default `main` branch and there will be a branch protection rule created that requires:
+
+- Pull Requests with approval
+- Status Checks Passing
+
+We require the `lint` status check to pass as that is the check provided by the template repo. This gives
+you out of the box terraform linting. You can override this via the `check_contexts` variable. The Terraform
+Cloud registry will show you all the available configuration on the module.
