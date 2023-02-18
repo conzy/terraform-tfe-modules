@@ -20,3 +20,20 @@ variable "description" {
   default     = "Managed by Terraform"
 }
 
+variable "branch_protection" {
+  type        = bool
+  default     = true
+  description = "Should branch protection be enforced."
+}
+
+variable "enforce_admins" {
+  type        = bool
+  description = "Should admins be subject to branch protection rules. I need to disable this for demo purposes!"
+  default     = true
+}
+
+variable "check_contexts" {
+  type        = list(string)
+  description = "What contexts should be used for required status checks? We default to lint which is the check in the template repo."
+  default     = ["lint"]
+}

@@ -29,3 +29,19 @@ resource "github_repository" "repo" {
     include_all_branches = true
   }
 }
+
+resource "github_branch_protection" "protection" {
+  count          = var.branch_protection ? 1 : 0
+  repository_id  = github_repository.repo.name
+  pattern        = "main"
+  enforce_admins = var.enforce_admins
+
+  required_status_checks {
+    strict   = false
+    contexts = var.check_contexts
+  }
+
+  required_pull_request_reviews {
+    dismiss_stale_reviews = true
+  }
+}
