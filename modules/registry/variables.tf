@@ -20,6 +20,12 @@ variable "description" {
   default     = "Managed by Terraform"
 }
 
+variable "delete_branch_on_merge" {
+  type        = bool
+  default     = true
+  description = "Tidy up head branches on merge."
+}
+
 variable "branch_protection" {
   type        = bool
   default     = true

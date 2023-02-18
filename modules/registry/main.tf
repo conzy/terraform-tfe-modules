@@ -19,9 +19,10 @@ resource "tfe_registry_module" "registry_module" {
 }
 
 resource "github_repository" "repo" {
-  name        = var.name
-  description = var.description
-  visibility  = var.visibility
+  name                   = var.name
+  description            = var.description
+  visibility             = var.visibility
+  delete_branch_on_merge = var.delete_branch_on_merge
 
   template {
     owner                = "conzy"
